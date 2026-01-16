@@ -1,0 +1,49 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f5f5f5;
+
+  mat-card {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    mat-form-field {
+      width: 100%;
+    }
+
+    button {
+      margin-top: 10px;
+    }
+  }
+
+  .error-message {
+    color: #f44336;
+    background: #ffebee;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  .login-link {
+    text-align: center;
+    margin-top: 16px;
+
+    a {
+      color: #3f51b5;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
