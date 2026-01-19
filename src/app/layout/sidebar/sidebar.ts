@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { HasPermissionDirective } from '../../shared/directives/has-permission';
 import { AuthService } from '../../core/services/auth';
 
 interface MenuItem {
@@ -13,9 +12,8 @@ interface MenuItem {
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, HasPermissionDirective],
-  templateUrl: './sidebar.html',
-  styleUrl: './sidebar.scss'
+  imports: [RouterLink, RouterLinkActive],
+  templateUrl: './sidebar.html'
 })
 export class SidebarComponent {
   authService = inject(AuthService);

@@ -6,8 +6,7 @@ import { Router } from '@angular/router';
   selector: 'app-topbar',
   standalone: true,
   imports: [],
-  templateUrl: './topbar.html',
-  styleUrl: './topbar.scss'
+  templateUrl: './topbar.html'
 })
 export class TopbarComponent {
   private authService = inject(AuthService);

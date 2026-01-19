@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { MatCardModule } from '@angular/material/card';
@@ -21,10 +21,10 @@ import { RegisterService } from '../../core/services/register';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    RouterLink
   ],
-  templateUrl: './register.html',
-  styleUrl: './register.scss'
+  templateUrl: './register.html'
 })
 export class RegisterComponent {
   registerForm: FormGroup;
