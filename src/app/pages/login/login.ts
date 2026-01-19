@@ -43,7 +43,8 @@ export class LoginComponent {
     this.authService.login(credentials).subscribe({
       next: (response) => {
         console.log('✅ Connexion réussie', response);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/dashboard']);
+
       },
       error: (error) => {
         console.error('❌ Erreur login', error);

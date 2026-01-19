@@ -44,6 +44,17 @@ export class AuthService {
     console.log('✅ Déconnexion');
   }
 
+  getCurrentUser(): { email: string, role: string } | null {
+    const email = localStorage.getItem('email');
+    const role = localStorage.getItem('role');
+
+    if (email && role) {
+      return { email, role };
+    }
+
+    return null;
+  }
+
   private hasToken(): boolean {
     return !!localStorage.getItem('token');
   }

@@ -1,0 +1,43 @@
+<div class="dashboard">
+  <h1>📊 Tableau de bord</h1>
+
+  <div class="welcome-card">
+    <h2>Bienvenue, {{ userEmail }}</h2>
+    <p class="role-badge">Rôle : {{ userRole }}</p>
+  </div>
+
+  <div class="stats-container">
+    <div class="stat-card">
+      <div class="stat-icon">📦</div>
+      <div class="stat-info">
+        <h3>Produits</h3>
+        <p class="stat-value">0</p>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon">👥</div>
+      <div class="stat-info">
+        <h3>Utilisateurs</h3>
+        <p class="stat-value">0</p>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon">🔑</div>
+      <div class="stat-info">
+        <h3>Permissions</h3>
+        <p class="stat-value">{{ permissions.length }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="permissions-card">
+    <h3>🔐 Vos permissions :</h3>
+    <div class="permissions-list">
+      @for (permission of permissions; track permission) {
+        <span class="permission-badge">{{ permission }}</span>
+      }
+    </div>
+  </div>
+</div>
