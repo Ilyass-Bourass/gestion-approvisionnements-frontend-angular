@@ -1,0 +1,107 @@
+<div class="max-w-4xl mx-auto space-y-6">
+  <div class="flex items-center justify-between">
+    <h2 class="text-3xl font-bold text-gray-800 flex items-center gap-2">
+      <span>🏢</span>
+      <span>Détails du Fournisseur</span>
+    </h2>
+    <button
+      (click)="goBack()"
+      class="px-4 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition-colors"
+    >
+      ← Retour
+    </button>
+  </div>
+
+  @if (isLoading) {
+    <div class="bg-white rounded-xl shadow-lg p-12 text-center">
+      <div class="flex flex-col items-center gap-4">
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+        <p class="text-gray-600">Chargement...</p>
+      </div>
+    </div>
+  } @else if (errorMessage) {
+    <div class="bg-red-50 border border-red-500 text-red-700 px-6 py-4 rounded-lg">
+      {{ errorMessage }}
+    </div>
+  } @else if (fournisseur) {
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+      <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-6 text-white">
+        <h3 class="text-2xl font-bold">{{ fournisseur.raisonSociale }}</h3>
+        <p class="text-indigo-100 mt-1">ICE: {{ fournisseur.ice }}</p>
+      </div>
+
+      <div class="p-8 space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Personne de Contact -->
+          <div class="space-y-2">
+            <label class="text-sm font-semibold text-gray-500 uppercase tracking-wide">
+              Personne de Contact
+            </label>
+            <p class="text-lg text-gray-900 flex items-center gap-2">
+              <span>👤</span>
+              <span>{{ fournisseur.personneContact }}</span>
+            </p>
+          </div>
+
+          <!-- Email -->
+          <div class="space-y-2">
+            <label class="text-sm font-semibold text-gray-500 uppercase tracking-wide">
+              Email
+            </label>
+            <p class="text-lg text-gray-900">
+              <a [href]="'mailto:' + fournisseur.email" class="text-indigo-600 hover:underline flex items-center gap-2">
+                <span>📧</span>
+                <span>{{ fournisseur.email }}</span>
+              </a>
+            </p>
+          </div>
+
+          <!-- Téléphone -->
+          <div class="space-y-2">
+            <label class="text-sm font-semibold text-gray-500 uppercase tracking-wide">
+              Téléphone
+            </label>
+            <p class="text-lg text-gray-900">
+              <a [href]="'tel:' + fournisseur.telephone" class="text-indigo-600 hover:underline flex items-center gap-2">
+                <span>📞</span>
+                <span>{{ fournisseur.telephone }}</span>
+              </a>
+            </p>
+          </div>
+
+          <!-- Ville -->
+          <div class="space-y-2">
+            <label class="text-sm font-semibold text-gray-500 uppercase tracking-wide">
+              Ville
+            </label>
+            <p class="text-lg text-gray-900 flex items-center gap-2">
+              <span>📍</span>
+              <span>{{ fournisseur.ville }}</span>
+            </p>
+          </div>
+
+          <!-- Adresse -->
+          <div class="md:col-span-2 space-y-2">
+            <label class="text-sm font-semibold text-gray-500 uppercase tracking-wide">
+              Adresse Complète
+            </label>
+            <p class="text-lg text-gray-900 flex items-center gap-2">
+              <span>🏠</span>
+              <span>{{ fournisseur.adresse }}</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="pt-6 border-t flex justify-end">
+          <button
+            (click)="editFournisseur()"
+            class="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium shadow-md hover:shadow-lg flex items-center gap-2"
+          >
+            <span>✏️</span>
+            <span>Modifier</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  }
+</div>
