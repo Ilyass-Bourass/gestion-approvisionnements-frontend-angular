@@ -20,7 +20,9 @@ export class SidebarComponent {
 
   menuItems: MenuItem[] = [
     { label: 'Dashboard', route: '/dashboard', icon: '📊' },
+    { label: 'Gestion des utilisateurs', route: '/utilisateurs', icon: '👥', permission: 'ASSIGNER_ROLE' },
     { label: 'Produits', route: '/products', icon: '📦', permission: 'PRODUCT_READ' },
-    { label: 'Utilisateurs', route: '/users', icon: '👥', permission: 'USER_READ' }
+    { label: 'Fornisseurs', route: '/fournisseurs', icon: '🚚', permission: 'FOURNISSEUR_READ' },
+
   ];
 }
